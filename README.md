@@ -22,3 +22,10 @@ wisely, so I need some **statistical analysis** to help me understand my spendin
 deal with money with *different exchange rates*. It could be the money that I use in my home country and also Canadian 
 dollars. So I would like to have an application that is convenient to transfer the different exchange rates when I do
 bookkeeping.
+
+## User Stories 
+- As a user, I want to be able to keep a new expense.
+- As a user, I want to be able to modify an existed expense.
+- As a user, I want to be able to delete an existed expense.
+- As a user, I want to be able to choose currencies freely.
+- As a user, I want to be able to keep money in different accounts.
