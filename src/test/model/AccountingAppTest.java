@@ -23,4 +23,40 @@ class AccountingAppTest {
     }
 
 
+    @Test
+    void testUpdateDescription() {
+        testExpense = new Expense("H-Mart", 2.1, 2, 20, "bmo");
+        testExpense.updateDescription("Shopping");
+        assertEquals("Shopping", testExpense.getDescription());
+    }
+
+    @Test
+    void testUpdateDate() {
+        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
+        testExpense.updateDate(3.5);
+        assertEquals(3.5, testExpense.getTime());
+    }
+
+    @Test
+    void testUpdateCurrency() {
+        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
+        testExpense.updateCurrency(3);
+        assertEquals(3, testExpense.getCurrency());
+    }
+
+    @Test
+    void testUpdateMoney() {
+        testExpense = new Expense("H-Mart", 2.1, 1, 50, "bmo");
+        testExpense.updateMoney(10);
+        assertEquals(10, testExpense.getAmount());
+    }
+
+    @Test
+    void testUpdateAccount() {
+        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
+        testExpense.updateAccount("td");
+        assertEquals("td", testExpense.getAccount());
+    }
+
+
 }
