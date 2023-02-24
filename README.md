@@ -10,9 +10,10 @@ possible for the users to spend different currencies and keep accounts.
 
 ### Who will use it?
 
-- According to the feature, **international students** are the primary audiences. Sometimes, if people get financial 
-supports by families or by themselves, they do not want to exceed budgets, so the monthly summarizing graph will give a 
-compact result of the expenditures, and they can reflect based on that.
+- According to the feature, **international students** or **people who need to deal with transnational payments** are 
+the primary audiences. Sometimes, if people get financial supports by families or by themselves, they do not want to 
+exceed budgets, so the monthly summarizing graph will give a compact result of the expenditures, and they can reflect 
+based on that.
 
 
 ### Why is this project of interest to me?
@@ -25,6 +26,7 @@ bookkeeping.
 
 ## User Stories 
 - As a user, I want to be able to keep a new expense.
+- As a user, I want to be able to keep many expenses.
 - As a user, I want to be able to modify an existed expense.
 - As a user, I want to be able to delete an existed expense.
 - As a user, I want to be able to choose currencies freely.
