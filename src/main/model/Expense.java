@@ -4,15 +4,35 @@ public class Expense {
     private String description;
     private double time;
     private int currency;
-    private double money;
+    private double amount;
     private String account;
 
-    public Expense(String description, double time, int currency, double money, String account) {
+    public Expense(String description, double time, int currency, double amount, String account) {
         this.description = description;
         this.time = time;
         this.currency = currency;
-        this.money = money;
+        this.amount = amount;
         this.account = account;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
+    public int getCurrency() {
+        return currency;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getAccount() {
+        return account;
     }
 
     // MODIFIES: this
@@ -35,8 +55,8 @@ public class Expense {
 
     // MODIFIES: this
     // EFFECTS: Modify the amount to the given amount.
-    public void updateMoney(double money) {
-        this.money = money;
+    public void updateMoney(double amount) {
+        this.amount = amount;
     }
 
     // MODIFIES: this
