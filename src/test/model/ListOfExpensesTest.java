@@ -2,8 +2,8 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
 
 public class ListOfExpensesTest {
     private ListOfExpenses expenses;
@@ -28,6 +28,7 @@ public class ListOfExpensesTest {
         expenses.addExpense(expenseThree);
 
         assertEquals(3,expenses.length());
+        //assertEquals("Tuition",expenses.get(0));
     }
 
     @Test
@@ -42,15 +43,23 @@ public class ListOfExpensesTest {
 
     @Test
     void testRemove() {
+        assertFalse(expenses.removeExpense(0));
+    }
+
+    @Test
+    void testRemoveMulti() {
         expenses.addExpense(expenseOne);
         expenses.addExpense(expenseTwo);
         expenses.addExpense(expenseThree);
 
-        expenses.removeExpense(2);
+        assertTrue(expenses.length() != 0);
+        assertTrue(expenses.removeExpense(2));
         assertEquals(2,expenses.length());
 
         expenses.removeExpense(0);
         expenses.removeExpense(0);
         assertEquals(0,expenses.length());
+
+        assertFalse(expenses.removeExpense(0));
     }
 }

@@ -11,8 +11,12 @@ public class ListOfExpenses {
 
     // MODIFIES: this
     // EFFECTS: Remove the expense at the given index position.
-    public void removeExpense(int index) {
-        expenses.remove(index);
+    public boolean removeExpense(int index) {
+        if (length() != 0) {
+            expenses.remove(index);
+            return true;
+        }
+        return false;
     }
 
     // MODIFIES: this
