@@ -11,7 +11,7 @@ public class ListOfExpenses {
 
     // MODIFIES: this
     // EFFECTS: Remove the expense at the given index position.
-    public Expense remove(int index) {
+    public Expense removeExpense(int index) {
         expenses.remove(index);
         return null;
     }
@@ -20,6 +20,11 @@ public class ListOfExpenses {
     // EFFECTS:
     public Expense addExpense(Expense expense) {
         expenses.add(expense);
-        return expense;
+        return null;
     }
+
+    public int length() {
+        return expenses.size();
+    }
+
 }
