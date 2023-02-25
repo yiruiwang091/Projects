@@ -21,6 +21,8 @@ public class ListOfExpensesTest {
 
     @Test
     void testAddExpense() {
+        assertEquals(0,expenses.length());
+
         expenses.addExpense(expenseOne);
         expenses.addExpense(expenseTwo);
         expenses.addExpense(expenseThree);
@@ -30,6 +32,8 @@ public class ListOfExpensesTest {
 
     @Test
     void testLength() {
+        assertEquals(0,expenses.length());
+
         expenses.addExpense(expenseOne);
         expenses.addExpense(expenseTwo);
 
