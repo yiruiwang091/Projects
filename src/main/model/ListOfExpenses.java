@@ -18,9 +18,8 @@ public class ListOfExpenses {
 
     // MODIFIES:
     // EFFECTS:
-    public Expense addExpense(Expense expense) {
+    public void addExpense(Expense expense) {
         expenses.add(expense);
-        return null;
     }
 
     public int length() {

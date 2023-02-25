@@ -44,6 +44,8 @@ public class ListOfExpensesTest {
 
         expenses.removeExpense(2);
         assertEquals(2,expenses.length());
-        //assertEquals(expenseTwo,expenses.get(1));
+
+        expenses.removeExpense(0);
+        assertEquals(1,expenses.length());
     }
 }
