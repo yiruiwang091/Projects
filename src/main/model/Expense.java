@@ -1,5 +1,6 @@
 package model;
 
+// Represents an expense with description, date, currency, amount, account.
 public class Expense {
     private String description;
     private double time;
@@ -15,22 +16,27 @@ public class Expense {
         this.account = account;
     }
 
+    // EFFECTS: return the description
     public String getDescription() {
         return description;
     }
 
+    // EFFECTS: return the date
     public double getTime() {
         return time;
     }
 
+    // EFFECTS: return the currency
     public int getCurrency() {
         return currency;
     }
 
+    // EFFECTS: return the amount
     public double getAmount() {
         return amount;
     }
 
+    // EFFECTS: return the account
     public String getAccount() {
         return account;
     }

@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedList;
 
+// Represents a list of expenses.
 public class ListOfExpenses {
     private LinkedList<Expense> expenses;
 
