@@ -24,10 +24,13 @@ public class ListOfExpensesTest {
         assertEquals(0,expenses.length());
 
         expenses.addExpense(expenseOne);
+        assertEquals(1,expenses.length());
+
+        expenses.addExpense(expenseTwo);
         expenses.addExpense(expenseTwo);
         expenses.addExpense(expenseThree);
 
-        assertEquals(3,expenses.length());
+        assertEquals(4,expenses.length());
         //assertEquals("Tuition",expenses.get(0));
     }
 
