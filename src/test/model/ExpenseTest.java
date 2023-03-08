@@ -16,7 +16,7 @@ class ExpenseTest {
     void testConstructor() {
         assertEquals("H-Mart", testExpense.getDescription());
         assertEquals(2.20, testExpense.getTime());
-        assertEquals(1, testExpense.getCurrency());
+        assertEquals("CAD", testExpense.getCurrency());
         assertEquals(20, testExpense.getAmount());
         assertEquals("bmo", testExpense.getAccount());
     }
