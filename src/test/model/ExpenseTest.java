@@ -38,7 +38,7 @@ class ExpenseTest {
 
     @Test
     void testUpdateCurrency() {
-        testExpense = new Expense("H-Mart", 2.1, "CAD", 10, "bmo");
+        testExpense = new Expense("H-Mart", 2.1, "CAD", 20, "bmo");
         testExpense.updateCurrency("USD");
         assertEquals("USD", testExpense.getCurrency());
     }

@@ -44,7 +44,7 @@ public class ListOfExpensesTest {
     }
 
     @Test
-    void testRemove() {
+    void testRemove() { // when length = 0
         assertFalse(expenses.removeExpense(0));
     }
 
@@ -53,15 +53,25 @@ public class ListOfExpensesTest {
         expenses.addExpense(expenseOne);
         expenses.addExpense(expenseTwo);
         expenses.addExpense(expenseThree);
-
+        //remove one
         assertTrue(expenses.length() != 0);
         assertTrue(expenses.removeExpense(2));
         assertEquals(2,expenses.length());
-
+        // remove multi
         expenses.removeExpense(0);
-        expenses.removeExpense(0);
+        assertTrue(expenses.removeExpense(0));
         assertEquals(0,expenses.length());
 
         assertFalse(expenses.removeExpense(0));
+    }
+
+    @Test
+    void testGetExpense() {
+        expenses.addExpense(expenseOne);
+        expenses.addExpense(expenseTwo);
+        expenses.addExpense(expenseThree);
+
+        assertEquals(expenseOne, expenses.get(0));
+        assertEquals(expenseThree, expenses.get(2));
     }
 }
