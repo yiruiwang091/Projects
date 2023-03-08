@@ -9,7 +9,7 @@ class ExpenseTest {
 
     @BeforeEach
     void runBefore() {
-        testExpense = new Expense("H-Mart", 2.20, 1, 20, "bmo");
+        testExpense = new Expense("H-Mart", 2.20, "CAD", 20, "bmo");
     }
 
     @Test
@@ -24,35 +24,35 @@ class ExpenseTest {
 
     @Test
     void testUpdateDescription() {
-        testExpense = new Expense("H-Mart", 2.1, 2, 20, "bmo");
+        testExpense = new Expense("H-Mart", 2.1, "CNY", 20, "bmo");
         testExpense.updateDescription("Shopping");
         assertEquals("Shopping", testExpense.getDescription());
     }
 
     @Test
     void testUpdateDate() {
-        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
+        testExpense = new Expense("H-Mart", 2.1, "CAD", 10, "bmo");
         testExpense.updateDate(3.5);
         assertEquals(3.5, testExpense.getTime());
     }
 
     @Test
     void testUpdateCurrency() {
-        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
-        testExpense.updateCurrency(3);
-        assertEquals(3, testExpense.getCurrency());
+        testExpense = new Expense("H-Mart", 2.1, "CAD", 10, "bmo");
+        testExpense.updateCurrency("USD");
+        assertEquals("USD", testExpense.getCurrency());
     }
 
     @Test
     void testUpdateMoney() {
-        testExpense = new Expense("H-Mart", 2.1, 1, 50, "bmo");
+        testExpense = new Expense("H-Mart", 2.1, "HKD", 50, "bmo");
         testExpense.updateMoney(10);
         assertEquals(10, testExpense.getAmount());
     }
 
     @Test
     void testUpdateAccount() {
-        testExpense = new Expense("H-Mart", 2.1, 1, 10, "bmo");
+        testExpense = new Expense("H-Mart", 2.1, "CAD", 10, "bmo");
         testExpense.updateAccount("td");
         assertEquals("td", testExpense.getAccount());
     }

@@ -1,15 +1,17 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 // Represents a list of expenses.
 public class ListOfExpenses {
-    private LinkedList<Expense> expenses;
+    private ArrayList<Expense> expenses;
 
     public ListOfExpenses() {
-        expenses = new LinkedList<>();
+        expenses = new ArrayList<>();
     }
 
+    // REQUIRES: input is less than the list length - 1
     // MODIFIES: this
     // EFFECTS: Remove the expense at the given index position.
     public boolean removeExpense(int index) {
@@ -31,4 +33,8 @@ public class ListOfExpenses {
         return expenses.size();
     }
 
+    // EFFECTS: get the expense at ith position
+    public Expense get(int i) {
+        return expenses.get(i);
+    }
 }

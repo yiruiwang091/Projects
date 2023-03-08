@@ -4,11 +4,11 @@ package model;
 public class Expense {
     private String description;
     private double time;
-    private int currency;
+    private String currency;
     private double amount;
     private String account;
 
-    public Expense(String description, double time, int currency, double amount, String account) {
+    public Expense(String description, double time, String currency, double amount, String account) {
         this.description = description;
         this.time = time;
         this.currency = currency;
@@ -27,7 +27,7 @@ public class Expense {
     }
 
     // EFFECTS: return the currency
-    public int getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 
@@ -55,7 +55,7 @@ public class Expense {
 
     // MODIFIES: this
     // EFFECTS: Modify the currency to the new currency.
-    public void updateCurrency(int currency) {
+    public void updateCurrency(String currency) {
         this.currency = currency;
     }
 

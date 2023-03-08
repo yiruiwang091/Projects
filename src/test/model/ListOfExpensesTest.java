@@ -14,9 +14,9 @@ public class ListOfExpensesTest {
     @BeforeEach
     void runBefore() {
         expenses = new ListOfExpenses();
-        expenseOne = new Expense("H-Mart", 2.1, 1, 50, "bmo");
-        expenseTwo = new Expense("Tuition", 3.3, 1, 5000, "td");
-        expenseThree = new Expense("Residence Fee", 1.1, 1, 1000, "bmo");
+        expenseOne = new Expense("H-Mart", 2.1, "CAD", 50, "bmo");
+        expenseTwo = new Expense("Tuition", 3.3, "CNY", 5000, "td");
+        expenseThree = new Expense("Residence Fee", 1.1, "CAD", 1000, "bmo");
     }
 
     @Test
@@ -31,7 +31,6 @@ public class ListOfExpensesTest {
         expenses.addExpense(expenseThree);
 
         assertEquals(4,expenses.length());
-        //assertEquals("Tuition",expenses.get(0));
     }
 
     @Test
