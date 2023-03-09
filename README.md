@@ -31,3 +31,5 @@ bookkeeping.
 - As a user, I want to be able to delete an existed expense.
 - As a user, I want to be able to choose currencies freely.
 - As a user, I want to be able to keep money in different accounts.
+- As a user I want to be reminded to save the entire state of the application to file when I quit the program.
+- As a user, I want to reload the expenses from file and resume exactly where I left off at some earlier time.
