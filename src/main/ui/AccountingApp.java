@@ -2,18 +2,27 @@ package ui;
 
 import model.Expense;
 import model.ListOfExpenses;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.*;
 import static java.util.Currency.getInstance;
 
 public class AccountingApp {
-    // private Expense expense;
+    private static final String JSON_STORE = "./data/workroom.json";
     private ListOfExpenses expenses;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the Accounting application
     public AccountingApp() {
+        expenses = new ListOfExpenses();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runAccounting();
     }
 
@@ -49,8 +58,46 @@ public class AccountingApp {
             doModify();
         } else if (command.equals("d")) {
             doDelete();
+        } else if (command.equals("s")) {
+            saveExpenses();
+        } else if (command.equals("p")) {
+            printExpenses();
+        } else if (command.equals("l")) {
+            loadExpenses();
         } else {
             System.out.println("Selection not valid...");
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads expenses from file
+    private void loadExpenses() {
+        try {
+            expenses = jsonReader.read();
+            System.out.println("Loaded " + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: prints all the expenses in the list to the console
+    private void printExpenses() {
+        List<Expense> list = expenses.getExpenses();
+
+        for (Expense e : list) {
+            System.out.println(e);
+        }
+    }
+
+    // EFFECTS: saves the expenses to file
+    private void saveExpenses() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(expenses);
+            jsonWriter.close();
+            System.out.println("Saved " + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 
@@ -68,6 +115,9 @@ public class AccountingApp {
         System.out.println("\tk -> keep");
         System.out.println("\tm -> modify");
         System.out.println("\td -> delete");
+        System.out.println("\ts -> save expenses to file");
+        System.out.println("\tp -> print expenses from file");
+        System.out.println("\tl -> load expenses from file");
         System.out.println("\tq -> quit");
     }
 
@@ -176,6 +226,9 @@ public class AccountingApp {
         String str = input.next();
         thisExpense.updateCurrency(str);
         System.out.println("New currency: " + thisExpense.getCurrency() + " has been updated.");
+        System.out.println("Please enter the amount again: ");
+        doConvertMoney(thisExpense);
+        System.out.println("The new amount is " + thisExpense.getCurrency() + thisExpense.getAmount());
     }
 
     // MODIFIES: this
@@ -277,7 +330,7 @@ public class AccountingApp {
     }
 
     @SuppressWarnings("methodlength")
-    // EFFECTS: Converts the money to CAD and returns it
+    // EFFECTS: Converts the money to the specific currency and returns it
     private void doConvertMoney(Expense expense) {
         double money = input.nextDouble();
         String currency = expense.getCurrency();

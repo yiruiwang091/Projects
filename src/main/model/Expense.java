@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents an expense with description, date, currency, amount, account.
-public class Expense {
+public class Expense implements Writable {
     private String description;
     private double time;
     private String currency;
@@ -71,4 +75,14 @@ public class Expense {
         this.account = account;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("description", description);
+        json.put("time", time);
+        json.put("currency", currency);
+        json.put("amount", amount);
+        json.put("account", account);
+        return json;
+    }
 }

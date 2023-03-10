@@ -1,10 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Collections;
+import java.util.List;
 
 // Represents a list of expenses.
-public class ListOfExpenses {
+public class ListOfExpenses implements Writable {
     private ArrayList<Expense> expenses;
 
     public ListOfExpenses() {
@@ -36,5 +41,27 @@ public class ListOfExpenses {
     // EFFECTS: get the expense at ith position
     public Expense get(int i) {
         return expenses.get(i);
+    }
+
+    // EFFECTS: returns an unmodifiable list of expenses in the list
+    public List<Expense> getExpenses() {
+        return Collections.unmodifiableList(expenses);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("listofexpenses", expensesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this list as a JSON array
+    private JSONArray expensesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Expense e : expenses) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
     }
 }
