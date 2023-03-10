@@ -28,7 +28,7 @@ public class JsonWriterTest extends JsonTest {
     void testWriterEmptyExpenses() {
         try {
             ListOfExpenses e = new ListOfExpenses();
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkroom.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyExpenses.json");
             writer.open();
             writer.write(e);
             writer.close();
