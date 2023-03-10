@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Expense;
 import model.ListOfExpenses;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,6 +10,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+
+import org.json.*;
+
+import static java.lang.Double.valueOf;
 
 // Represents a reader that reads list of expenses from JSON data stored in file
 public class JsonReader {
@@ -39,9 +44,21 @@ public class JsonReader {
     private void addExpenses(ListOfExpenses expenses, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("expenses");
         for (Object json : jsonArray) {
-            JSONObject nextExpense = (JSONObject)  json;
-            addExpenses(expenses, nextExpense);
+            JSONObject nextExpense = (JSONObject) json;
+            addExpense(expenses, nextExpense);
         }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: parses expense from JSON object and adds it to the list
+    private void addExpense(ListOfExpenses expenses, JSONObject jsonObject) {
+        String des = jsonObject.getString("description");
+        Double time = valueOf(jsonObject.getString("time"));
+        String currency = jsonObject.getString("currency");
+        Double amount = valueOf(jsonObject.getString("amount"));
+        String account = jsonObject.getString("account");
+        Expense e = new Expense(des, time, currency, amount, account);
+        expenses.addExpense(e);
     }
 
     // EFFECTS: reads source file as string and returns it

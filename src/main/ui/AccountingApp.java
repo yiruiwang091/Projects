@@ -7,19 +7,17 @@ import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.NumberFormat;
 import java.util.*;
-import static java.util.Currency.getInstance;
 
 public class AccountingApp {
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/expenses.json";
     private ListOfExpenses expenses;
     private Scanner input;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
     // EFFECTS: runs the Accounting application
-    public AccountingApp() {
+    public AccountingApp() throws FileNotFoundException {
         expenses = new ListOfExpenses();
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -49,6 +47,18 @@ public class AccountingApp {
         System.out.println("\nThanks for choosing this accounting software!");
     }
 
+    // EFFECTS: displays menu of options to user
+    private void displayMenu() {
+        System.out.println("\nSelect from:");
+        System.out.println("\tk -> keep");
+        System.out.println("\tm -> modify");
+        System.out.println("\td -> delete");
+        System.out.println("\ts -> save expenses to file");
+        System.out.println("\tp -> print expenses from file");
+        System.out.println("\tl -> load expenses from file");
+        System.out.println("\tq -> quit");
+    }
+
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
@@ -69,26 +79,6 @@ public class AccountingApp {
         }
     }
 
-    // MODIFIES: this
-    // EFFECTS: loads expenses from file
-    private void loadExpenses() {
-        try {
-            expenses = jsonReader.read();
-            System.out.println("Loaded " + " from " + JSON_STORE);
-        } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
-        }
-    }
-
-    // EFFECTS: prints all the expenses in the list to the console
-    private void printExpenses() {
-        List<Expense> list = expenses.getExpenses();
-
-        for (Expense e : list) {
-            System.out.println(e);
-        }
-    }
-
     // EFFECTS: saves the expenses to file
     private void saveExpenses() {
         try {
@@ -101,24 +91,36 @@ public class AccountingApp {
         }
     }
 
+    // EFFECTS: prints all the expenses in the list to the console
+    private void printExpenses() {
+        List<Expense> list = expenses.getExpenses();
+
+        for (Expense e : list) {
+            System.out.println("Description: " + e.getDescription()
+                    + " Time: " + e.getTime()
+                    + " Currency: " + e.getCurrency()
+                    + " Amount: " + e.getAmount()
+                    + " Account: " + e.getAccount());
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads expenses from file
+    private void loadExpenses() {
+        try {
+            expenses = jsonReader.read();
+            System.out.println("Loaded " + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
     // MODIFIES: this
     // EFFECTS: initializes the list of expenses
     private void init() {
         expenses = new ListOfExpenses();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
-    }
-
-    // EFFECTS: displays menu of options to user
-    private void displayMenu() {
-        System.out.println("\nSelect from:");
-        System.out.println("\tk -> keep");
-        System.out.println("\tm -> modify");
-        System.out.println("\td -> delete");
-        System.out.println("\ts -> save expenses to file");
-        System.out.println("\tp -> print expenses from file");
-        System.out.println("\tl -> load expenses from file");
-        System.out.println("\tq -> quit");
     }
 
     // MODIFIES: this

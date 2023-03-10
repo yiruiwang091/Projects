@@ -3,15 +3,13 @@ package persistence;
 import model.ListOfExpenses;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of list of expenses to file
 public class JsonWriter {
     private PrintWriter writer;
     private String destination;
-    private static final int TAB = 6;
+    private static final int TAB = 4;
 
     // EFFECTS: constructs writer to write to destination file
     public JsonWriter(String destination) {
