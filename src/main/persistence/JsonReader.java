@@ -14,6 +14,7 @@ import org.json.*;
 import static java.lang.Double.valueOf;
 
 // Represents a reader that reads list of expenses from JSON data stored in file
+// This has reference to <https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git>
 public class JsonReader {
     private String source;
 
@@ -51,9 +52,9 @@ public class JsonReader {
     // EFFECTS: parses expense from JSON object and adds it to the list
     private void addExpense(ListOfExpenses expenses, JSONObject jsonObject) {
         String des = jsonObject.getString("description");
-        Double time = valueOf(jsonObject.getString("time"));
+        Double time = valueOf(jsonObject.getDouble("time"));
         String currency = jsonObject.getString("currency");
-        Double amount = valueOf(jsonObject.getString("amount"));
+        Double amount = valueOf(jsonObject.getDouble("amount"));
         String account = jsonObject.getString("account");
         Expense e = new Expense(des, time, currency, amount, account);
         expenses.addExpense(e);

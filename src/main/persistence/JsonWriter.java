@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of list of expenses to file
+// This has reference to <https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git>
 public class JsonWriter {
     private PrintWriter writer;
     private String destination;
