@@ -5,9 +5,10 @@ import model.ListOfExpenses;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
 import java.util.*;
+import java.io.*;
 
 public class AccountingApp {
     private static final String JSON_STORE = "./data/expenses.json";
@@ -93,7 +94,11 @@ public class AccountingApp {
 
     // EFFECTS: prints all the expenses in the list to the console
     private void printExpenses() {
-        List<Expense> list = expenses.getExpenses();
+        //List<Expense> list = expenses.getExpenses();
+        List<Expense> list = new ArrayList<>();
+        for (int i = 0; i < expenses.length(); i++) {
+            list.add(expenses.get(i));
+        }
 
         for (Expense e : list) {
             System.out.println("Description: " + e.getDescription()
