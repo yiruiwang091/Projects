@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class ExpenseGUI {
-
-    public static void main(String[] args){
+    @SuppressWarnings("methodlength")
+    public static void main(String[] args) {
 
         // create JFrame and JTable
         JFrame frame = new JFrame();
@@ -82,7 +82,7 @@ public class ExpenseGUI {
         Object[] row = new Object[5];
 
         // button add row
-        btnAdd.addActionListener(new ActionListener(){
+        btnAdd.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,28 +99,27 @@ public class ExpenseGUI {
         });
 
         // button remove row
-        btnDelete.addActionListener(new ActionListener(){
+        btnDelete.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 // i = the index of the selected row
                 int i = table.getSelectedRow();
-                if(i >= 0){
+                if (i >= 0) {
                     // remove a row from jtable
                     model.removeRow(i);
-                }
-                else{
+                } else {
                     System.out.println("Delete Error");
                 }
             }
         });
 
         // get selected row data From table to textfields
-        table.addMouseListener(new MouseAdapter(){
+        table.addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseClicked(MouseEvent e){
+            public void mouseClicked(MouseEvent e) {
 
                 // i = the index of the selected row
                 int i = table.getSelectedRow();
@@ -134,7 +133,7 @@ public class ExpenseGUI {
         });
 
         // button update row
-        btnUpdate.addActionListener(new ActionListener(){
+        btnUpdate.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,15 +141,13 @@ public class ExpenseGUI {
                 // i = the index of the selected row
                 int i = table.getSelectedRow();
 
-                if(i >= 0)
-                {
+                if (i >= 0) {
                     model.setValueAt(textDescription.getText(), i, 0);
                     model.setValueAt(textDate.getText(), i, 1);
                     model.setValueAt(textCurrency.getText(), i, 2);
                     model.setValueAt(textAmount.getText(), i, 3);
                     model.setValueAt(textAccount.getText(),i,4);
-                }
-                else{
+                } else {
                     System.out.println("Update Error");
                 }
             }
