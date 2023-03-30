@@ -43,10 +43,10 @@ public class ListOfExpenses implements Writable {
         return expenses.get(i);
     }
 
-//    // EFFECTS: returns an unmodifiable list of expenses in the list
-//    public List<Expense> getExpenses() {
-//        return Collections.unmodifiableList(expenses);
-//    }
+    // EFFECTS: returns an unmodifiable list of expenses in the list
+    public List<Expense> getExpenses() {
+        return Collections.unmodifiableList(expenses);
+    }
 
     @Override
     public JSONObject toJson() {

@@ -33,3 +33,10 @@ bookkeeping.
 - As a user, I want to be able to keep money in different accounts.
 - As a user I want to be reminded to save the entire state of the application to file when I quit the program.
 - As a user, I want to reload the expenses from file and resume exactly where I left off at some earlier time.
+
+## Instructions for Grader
+- You can generate the first required action related to adding Xs to a Y by pressing the ENTER key.
+- You can generate the second required action related to removing Xs to a Y by clicking the button labelled "Remove".
+- You can locate my visual component by...
+- You can save the state of my application by...
+- You can reload the state of my application by...
