@@ -22,6 +22,7 @@ public class ListOfExpenses implements Writable {
     public boolean removeExpense(int index) {
         if (length() != 0) {
             expenses.remove(index);
+            EventLog.getInstance().logEvent(new Event("The expense has been removed."));
             return true;
         }
         return false;
@@ -31,6 +32,7 @@ public class ListOfExpenses implements Writable {
     // EFFECTS: Add expense to the list
     public void addExpense(Expense expense) {
         expenses.add(expense);
+        EventLog.getInstance().logEvent(new Event("Added one expense."));
     }
 
     // EFFECTS: returns the size of the list

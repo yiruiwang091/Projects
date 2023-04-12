@@ -37,6 +37,33 @@ bookkeeping.
 ## Instructions for Grader
 - You can generate the first required action related to adding Xs to a Y by pressing the ENTER key.
 - You can generate the second required action related to removing Xs to a Y by clicking the button labelled "Remove".
-- You can locate my visual component by...
-- You can save the state of my application by...
-- You can reload the state of my application by...
+- You can locate my visual component by clicking on the file menu.
+- You can save the state of my application by clicking the "Save" button under the file menu.
+- You can reload the state of my application by clicking the "Load" button under the file menu.
+
+## Phase 4: Task 2
+- An example of the printed logged events:
+  Wed Apr 12 14:45:30 PDT 2023
+  The description has been updated to: Tnt
+  Wed Apr 12 14:45:30 PDT 2023
+  The date has been updated to: 1.2
+  Wed Apr 12 14:45:30 PDT 2023
+  The currency has been updated to: cad
+  Wed Apr 12 14:45:30 PDT 2023
+  The amount has been updated to: 10.0
+  Wed Apr 12 14:45:30 PDT 2023
+  The bank account has been updated to: bmo
+  Wed Apr 12 14:45:30 PDT 2023
+  Added one expense.
+  Wed Apr 12 14:45:48 PDT 2023
+  The description has been updated to: Saveon
+  Wed Apr 12 14:45:48 PDT 2023
+  The description has been updated to: 1.2
+  Wed Apr 12 14:45:48 PDT 2023
+  The description has been updated to: cad
+  Wed Apr 12 14:45:48 PDT 2023
+  The description has been updated to: 10
+  Wed Apr 12 14:45:48 PDT 2023
+  The description has been updated to: bmo
+  Wed Apr 12 14:45:51 PDT 2023
+  The expense has been removed.

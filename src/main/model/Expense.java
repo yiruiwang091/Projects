@@ -49,30 +49,42 @@ public class Expense implements Writable {
     // EFFECTS: Modify the currency to the new currency.
     public void updateDescription(String description) {
         this.description = description;
+        EventLog.getInstance().logEvent(
+                new Event("The description has been updated to: " + this.description));
     }
+
 
     // MODIFIES: this
     // EFFECTS: Set the date to the new date.
     public void updateDate(double time) {
         this.time = time;
+        EventLog.getInstance().logEvent(
+                new Event("The date has been updated to: " + this.time));
     }
 
     // MODIFIES: this
     // EFFECTS: Modify the currency to the new currency.
     public void updateCurrency(String currency) {
         this.currency = currency;
+        EventLog.getInstance().logEvent(
+                new Event("The currency has been updated to: " + this.currency));
+
     }
 
     // MODIFIES: this
     // EFFECTS: Modify the amount to the given amount.
     public void updateMoney(double amount) {
         this.amount = amount;
+        EventLog.getInstance().logEvent(
+                new Event("The amount has been updated to: " + this.amount));
     }
 
     // MODIFIES: this
     // EFFECTS: Change the account to the new account.
     public void updateAccount(String account) {
         this.account = account;
+        EventLog.getInstance().logEvent(
+                new Event("The bank account has been updated to: " + this.account));
     }
 
     @Override
