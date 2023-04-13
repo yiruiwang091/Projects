@@ -69,3 +69,6 @@ bookkeeping.
   The expense has been removed.
 
 ## Phase 4: Task 3
+For the selectCurrency method inside AccountingApp, I can refactor the if statement by passing the str into
+selection.equals() to avoid repetitiveness. Also in the AccountingApp, I may refactor the if statement of 
+doConvertMoney() by passing a currency string, an exchange rate(double number) and also the currency unit and symbol.
