@@ -55,14 +55,18 @@ public class ExpenseGUI {
         menuBar.add(file);
         frame.setJMenuBar(menuBar);
         frame.setVisible(true);
+        windowAction();
+    }
+
+    private void windowAction() {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 for (Event event: EventLog.getInstance()) {
                     System.out.println(event);
                 }
+                System.out.println("window closing");
                 System.exit(0);
-
             }
         });
     }
