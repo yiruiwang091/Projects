@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.Iterator;
 
 import static java.lang.Double.parseDouble;
 
